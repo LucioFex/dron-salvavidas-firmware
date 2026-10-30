@@ -1,4 +1,6 @@
-# dron-salvavidas-firmware
+# gavia-firmware
+
+Parte de Gavia, un dron salvavidas autónomo con IA.
 
 Firmware de la botonera del guardavidas (ESP32) y configuración de ArduPilot para el dron salvavidas
 autónomo.
@@ -35,9 +37,9 @@ En diseño. La botonera tiene un esqueleto que compila y todavía no hace nada �
 
 ## Repos del proyecto
 
-- [dron-salvavidas-vision](https://github.com/LucioFex/dron-salvavidas-vision): detección y lógica de decisión
-- [dron-salvavidas-firmware](https://github.com/LucioFex/dron-salvavidas-firmware): botonera ESP32 y configuración de ArduPilot (este repo)
-- [dron-salvavidas-hardware](https://github.com/LucioFex/dron-salvavidas-hardware): modelos 3D y lista de materiales
+- [gavia-vision](https://github.com/LucioFex/gavia-vision): detección y lógica de decisión
+- [gavia-firmware](https://github.com/LucioFex/gavia-firmware): botonera ESP32 y configuración de ArduPilot (este repo)
+- [gavia-hardware](https://github.com/LucioFex/gavia-hardware): modelos 3D y lista de materiales
 
 ## Licencia
 
