@@ -1,0 +1,5 @@
+# Simulador Wokwi para VS Code: corre el programa compilado sobre el circuito de diagram.json
+[wokwi]
+version = 1
+firmware = '.pio/build/esp32dev/firmware.bin'
+elf = '.pio/build/esp32dev/firmware.elf'

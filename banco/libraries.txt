@@ -1,0 +1,3 @@
+# Bibliotecas para wokwi.com (en VS Code las baja PlatformIO)
+HX711
+ESP32Servo

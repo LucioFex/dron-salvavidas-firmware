@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Luciano Esteban",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hx711", "id": "celda", "top": -140, "left": 220, "attrs": { "type": "5kg" } },
+    { "type": "wokwi-servo", "id": "esc", "top": 120, "left": 260, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "agua", "top": 60, "left": -180, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "celda:VCC", "esp:3V3", "red", [] ],
+    [ "celda:GND", "esp:GND.2", "black", [] ],
+    [ "celda:DT", "esp:16", "green", [] ],
+    [ "celda:SCK", "esp:4", "blue", [] ],
+    [ "esc:PWM", "esp:25", "orange", [] ],
+    [ "esc:V+", "esp:5V", "red", [] ],
+    [ "esc:GND", "esp:GND.1", "black", [] ],
+    [ "agua:SIG", "esp:34", "violet", [] ],
+    [ "agua:VCC", "esp:27", "red", [] ],
+    [ "agua:GND", "esp:GND.3", "black", [] ]
+  ],
+  "dependencies": {}
+}
