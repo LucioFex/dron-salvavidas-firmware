@@ -1,3 +1,4 @@
 # Bibliotecas para wokwi.com (en VS Code las baja PlatformIO)
-HX711
+# "HX711 Arduino Library" es la de bogde, la misma de platformio.ini. "HX711" a secas es otra
+HX711 Arduino Library
 ESP32Servo

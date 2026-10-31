@@ -68,7 +68,9 @@ En el navegador:
 1. En wokwi.com, crear un proyecto nuevo de ESP32 con Arduino.
 2. Pegar el contenido de `src/main.cpp` en `sketch.ino`.
 3. Reemplazar `diagram.json` por el de esta carpeta.
-4. Agregar un archivo `libraries.txt` con el contenido del de esta carpeta.
+4. Agregar un archivo `libraries.txt` con el contenido del de esta carpeta. Si las sumás a mano
+   desde el Library Manager, elegí "HX711 Arduino Library" (la de bogde, la misma que usa
+   PlatformIO) y no "HX711" a secas, que es otra biblioteca.
 5. Darle a Play. En el monitor serie de abajo aparece "Banco de Gavia listo".
 
 En VS Code, con la extensión Wokwi Simulator, se compila con PlatformIO (el tilde de la barra de
@@ -76,12 +78,23 @@ abajo), se abre `diagram.json` y se le da a Play.
 
 Qué probar:
 
-- Escribir `tara`. Con la simulación andando, hacer clic en la celda para cambiarle el peso,
-  ponerle 1 kg y escribir `calibrar 1000`. Después `leer` tiene que mostrar unos 1000 g. Si tu
-  versión de Wokwi no muestra ese control, saltealo: la celda se prueba en el escalón 2.
+- Escribir `tara`. Con la simulación andando, hacer clic en la celda para cambiarle el peso (el
+  control dice "HX710 Load Sensor" y va de 0 a 5 kg), ponerle 1 kg y escribir `calibrar 1000`.
+  Después `leer` tiene que mostrar unos 1000 g. En Wokwi el factor da cerca de 0,42, porque la
+  celda simulada da pocas cuentas por gramo. Con la celda de verdad va a ser mucho más grande.
 - `barrido a`: el servo tiene que ir subiendo de a pasos y volver a cero entre uno y otro. Escribir
   cualquier letra y Enter en el medio: el servo vuelve a cero y aparece `corte,tecla`.
+- El pulsador rojo CORTE (BOOT) hace lo mismo que el botón BOOT de la placa, que en Wokwi queda
+  tapado por los cables. Apretado en el medio de un barrido, el servo vuelve a cero y aparece
+  `corte,boton`. Si no lo ves, arrastrá el monitor serie para abajo.
 - `agua prueba` con el potenciómetro en distintas posiciones: el promedio tiene que cambiar.
+- `rango-esc`: el servo va al máximo, y con un Enter vuelve al mínimo.
+
+Mientras lee la celda, Wokwi corre lento, a veces al 3 % del tiempo real (lo muestra arriba a la
+derecha). El barrido completo de 160 s puede tardar más de una hora. Para probarlo rápido, cambiá
+solo en la copia de Wokwi `PCT_DESDE` a 90, `MS_PASO` a 3000, `MS_MIDIENDO` a 1500 y
+`MS_DESCANSO` a 1500: son dos pasos de unos 4,5 s y la lógica es la misma. Esos cambios no se
+suben al repo.
 
 El simulador no guarda los CSV. Para eso está el escalón 2.
 

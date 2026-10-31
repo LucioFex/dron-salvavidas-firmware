@@ -6,7 +6,14 @@
     { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
     { "type": "wokwi-hx711", "id": "celda", "top": -140, "left": 220, "attrs": { "type": "5kg" } },
     { "type": "wokwi-servo", "id": "esc", "top": 120, "left": 260, "attrs": {} },
-    { "type": "wokwi-potentiometer", "id": "agua", "top": 60, "left": -180, "attrs": {} }
+    { "type": "wokwi-potentiometer", "id": "agua", "top": 60, "left": -180, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "corte",
+      "top": 170,
+      "left": -180,
+      "attrs": { "color": "red", "label": "CORTE (BOOT)" }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -20,7 +27,9 @@
     [ "esc:GND", "esp:GND.1", "black", [] ],
     [ "agua:SIG", "esp:34", "violet", [] ],
     [ "agua:VCC", "esp:27", "red", [] ],
-    [ "agua:GND", "esp:GND.3", "black", [] ]
+    [ "agua:GND", "esp:GND.3", "black", [] ],
+    [ "corte:1.r", "esp:0", "green", [] ],
+    [ "corte:2.r", "esp:GND.1", "black", [] ]
   ],
   "dependencies": {}
 }
